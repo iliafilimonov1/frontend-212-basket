@@ -1,0 +1,147 @@
+/* modal */
+.modal {
+  min-width: 900px;
+  border: 0;
+  position: relative;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background-color: var(--body-color);
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 5px 5px rgba(0, 0, 0, 0.2);
+  animation-duration: 400ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-name: slide;
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translate(0, 100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal-header .close-button {
+  background-color: transparent;
+  padding: 8px;
+  border: 0;
+  cursor: pointer;
+  position: absolute;
+  left: 16px;
+}
+
+.modal .close-button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 32px;
+  height: 32px;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal .close-button:hover::before {
+  background-color: var(--bg-hover);
+}
+
+.modal .close-button svg path {
+  stroke: var(--title-color);
+}
+
+
+/* модалка для входа в систему */
+.modal-header {
+  position: relative;
+  min-height: 64px;
+  border-bottom: 1px solid #ebebeb;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 24px;
+  padding-right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-header__title {
+  font-size: 16px;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-body__title {
+  font-size: 22px;
+  margin-bottom: 24px;
+  line-height: 30px;
+}
+
+.modal-body__subtitle {
+  font-size: 15px;
+  margin-bottom: 24px;
+  line-height: 30px;
+}
+
+.modal-body__avatar {
+  text-align: center;
+}
+
+.modal-body__avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* для изображений большего размера */
+}
+
+.modal-footer {
+  padding: 24px 24px 38px 24px;
+}
+
+.modal-footer__flex {
+  display: flex;
+  align-items: center;
+}
+
+.modal-footer__flex span {
+  font-size: 13px;
+  margin-right: 8px;
+}
+
+
+
+
+
+/* заголовки в модалке с табами */
+.modal-title {
+  margin-top: 16px;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 32px;
+  color: var(--title-color);
+}
+
+.modal-subtitle {
+  margin-top: 16px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--text-color);
+  max-width: 384px;
+  color: var(--subtitle-color);
+}
