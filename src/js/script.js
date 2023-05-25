@@ -100,6 +100,8 @@ function purchaseProduct(e) {
     const product = e.target.parentElement; // получаем доступ к родительскому тегу карточки
 
     geProductInfo(product); // извлечение данных отдельной карточки
+
+    loadCart(); // загрузка товара
   }
 }
 
@@ -112,8 +114,6 @@ function geProductInfo(product) {
     category: product.querySelector('.card-category').textContent,
     price: product.querySelector('.card-price').textContent,
   }
-
-  console.log(productInfo);
 
   addToBasketList(productInfo); // передача данных в корзину товара
   saveProductInStorage(productInfo);
@@ -180,7 +180,7 @@ function addToBasketList(product) {
 // удаление товара из DOM корзины
 function deleteProduct(e) {
   let basketItem;
-  console.dir(e.target);
+  
   if (e.target.tagName === "BUTTON") {
     basketItem = e.target.parentElement.parentElement.parentElement; // получение доступа к родителю всей карточки
     basketItem.remove();
@@ -188,6 +188,17 @@ function deleteProduct(e) {
     basketItem = e.target.parentElement.parentElement.parentElement; // получение доступа к родителю всей карточки
     basketItem.remove();
   }
+
+  let products = getProductFromStorage();
+
+  // удаление данных
+  let updateProducts = products.filter(product => {
+    return product.id !== Number.parseInt(basketItem.dataset.id, 10);
+  })
+
+  localStorage.setItem('products', JSON.stringify(updateProducts)); // сохранение данных в localStorage
+
+  updateCartInfo(); // показ новых данных в корзине
 }
 
 
@@ -227,8 +238,6 @@ function loadCart() {
 function updateCartInfo() {
   let cartInfo = findcartInfo(); // получение данных из модалки о кол-ве и итоговой цене товаров
 
-  console.log(cartInfo);
-
   basketCountInfo.textContent = cartInfo.productCount;
   basketTotalValue.textContent = cartInfo.total; // передаем данные в модалку (заголовок total)
 }
@@ -239,7 +248,7 @@ function findcartInfo() {
   let products = getProductFromStorage();
 
   let total = products.reduce((acc, product) => {
-    let price = parseFloat(product.price.substring(1));
+    let price = Number.parseFloat(product.price, 10);
     return acc += price;
   }, 0);
 
