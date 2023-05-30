@@ -1,9 +1,9 @@
 {
   "name": "frontend-212-basket",
   "version": "1.0.0",
-  "source": "src/index.html",
+  "main": "index.js",
   "scripts": {
-    "server": "parcel",
+    "server": "parcel index.html",
     "build": "parcel index.html",
     "deploy": "cd dist --archive --compress --delete . iliafilimonov1@frontend-212-basket:/var/www/github.com/iliafilimonov1/frontend-212-basket/"
   },
