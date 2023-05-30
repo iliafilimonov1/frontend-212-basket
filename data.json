@@ -12,14 +12,14 @@
             "category": "Bed",
             "rating": "3.0",
             "price": "102.10",
-            "imgSrc": "https://mirinteresen.net/uploads/posts/2020-07/1594754366_15.jpg"
+            "imgSrc": "images/help-image-2.jpg"
         },
         {
             "name": "Bench",
             "category": "Bench",
             "rating": "4.9",
             "price": "15",
-            "imgSrc": "https://petzona.ru/wp-content/uploads/2019/02/sapsan-unikalnaya-ptitsa-2.jpg"
+            "imgSrc": "images/help-image-3.jpg"
         },
         {
             "name": "Bunk bed",

@@ -1,3 +1,5 @@
+import imgs from "../images/*.jpg";
+
 /* модалка basket */
 const modal = document.querySelector('#modal-basket'); // получение доступа к модалке
 const openModal = document.querySelector('#open-basket'); // доступ к кнопке
@@ -56,7 +58,7 @@ async function loadJSON() {
         html += `
             <div class="main-card">
               <div class="card-image">
-                <img src="${product?.imgSrc}" alt="image">
+                <img class="pic" src="" alt="image">
   
                 <div class="card-wishlist">
                   <div class="wishlist-rating">
@@ -92,6 +94,16 @@ async function loadJSON() {
       });
     }
     productList.insertAdjacentHTML('beforeend', html);
+
+    // отрисовка картинок
+    let pic = document.querySelectorAll(".pic");
+
+    let img = Object.values(imgs);
+
+    console.log(`img`, img);
+
+    pic.forEach((a, i) => a.setAttribute("src", img[i]));
+
   } catch (error) {
     console.error('Ошибка загрузки данных:', error);
   }
