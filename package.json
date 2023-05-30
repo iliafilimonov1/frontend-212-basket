@@ -1,10 +1,10 @@
 {
   "name": "frontend-212-basket",
   "version": "1.0.0",
-  "default": "src/index.html",
+  "source": "src/index.html",
   "scripts": {
-    "server": "parcel src/index.html",
-    "build": "parcel src/index.html",
+    "server": "parcel",
+    "build": "parcel build",
     "deploy": "cd dist --archive --compress --delete . iliafilimonov1@frontend-212-basket:/var/www/github.com/iliafilimonov1/frontend-212-basket/"
   },
   "keywords": [],
